@@ -16,180 +16,108 @@
       align-items: center;
       padding: 40px 20px;
     }
-    h1 {
-      font-size: 28px;
-      color: #f0a500;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-    p.sub {
-      color: #6b6b85;
-      font-size: 14px;
-      margin-bottom: 32px;
-      text-align: center;
-    }
+    h1 { font-size: 28px; color: #f0a500; margin-bottom: 8px; text-align: center; }
+    p.sub { color: #6b6b85; font-size: 14px; margin-bottom: 32px; text-align: center; }
     .card {
-      background: #14141e;
-      border: 1px solid #1e1e2e;
-      border-radius: 12px;
-      padding: 28px;
-      width: 100%;
-      max-width: 520px;
-      margin-bottom: 24px;
+      background: #14141e; border: 1px solid #1e1e2e;
+      border-radius: 12px; padding: 28px;
+      width: 100%; max-width: 520px; margin-bottom: 24px;
     }
     label {
-      display: block;
-      font-size: 13px;
-      color: #6b6b85;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      display: block; font-size: 13px; color: #6b6b85;
+      margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;
     }
-    input[type="file"] {
-      width: 100%;
-      padding: 12px;
-      background: #0a0a0f;
-      border: 1px dashed #f0a500;
-      border-radius: 8px;
-      color: #e8e8f0;
-      margin-bottom: 20px;
-      cursor: pointer;
+    input[type="file"], input[type="text"], select {
+      width: 100%; padding: 12px; background: #0a0a0f;
+      border: 1px solid #1e1e2e; border-radius: 8px;
+      color: #e8e8f0; margin-bottom: 20px; font-size: 14px;
     }
-    select {
-      width: 100%;
-      padding: 12px;
-      background: #0a0a0f;
-      border: 1px solid #1e1e2e;
-      border-radius: 8px;
-      color: #e8e8f0;
-      margin-bottom: 20px;
-      font-size: 14px;
+    input[type="file"] { border-style: dashed; border-color: #f0a500; cursor: pointer; }
+
+    .weather-toggle {
+      display: flex; gap: 10px; margin-bottom: 16px;
     }
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #f0a500;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s;
+    .toggle-btn {
+      flex: 1; padding: 10px; border-radius: 8px; font-size: 13px;
+      font-weight: 600; cursor: pointer; border: 1px solid #1e1e2e;
+      background: #0a0a0f; color: #6b6b85; transition: all 0.2s;
     }
-    button:hover { opacity: 0.85; }
-    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .toggle-btn.active {
+      background: rgba(240,165,0,0.15); color: #f0a500;
+      border-color: rgba(240,165,0,0.4);
+    }
+
+    button.analyze-btn {
+      width: 100%; padding: 14px; background: #f0a500;
+      color: #000; border: none; border-radius: 8px;
+      font-size: 16px; font-weight: 700; cursor: pointer; transition: opacity 0.2s;
+    }
+    button.analyze-btn:hover { opacity: 0.85; }
+    button.analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .weather-source-badge {
+      display: inline-block; padding: 4px 10px; border-radius: 20px;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .live-badge {
+      background: rgba(0,212,170,0.15); color: #00d4aa;
+      border: 1px solid rgba(0,212,170,0.3);
+    }
+    .manual-badge {
+      background: rgba(240,165,0,0.15); color: #f0a500;
+      border: 1px solid rgba(240,165,0,0.3);
+    }
 
     .result-card {
-      background: #14141e;
-      border: 1px solid #1e1e2e;
-      border-radius: 12px;
-      padding: 28px;
-      width: 100%;
-      max-width: 520px;
-      display: none;
+      background: #14141e; border: 1px solid #1e1e2e;
+      border-radius: 12px; padding: 28px;
+      width: 100%; max-width: 520px; display: none;
     }
     .result-card.show { display: block; }
 
-    .speed-display {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .speed-number {
-      font-size: 72px;
-      font-weight: 900;
-      color: #f0a500;
-      line-height: 1;
-    }
-    .speed-unit {
-      font-size: 18px;
-      color: #6b6b85;
-    }
+    .speed-display { text-align: center; margin-bottom: 24px; }
+    .speed-number { font-size: 72px; font-weight: 900; color: #f0a500; line-height: 1; }
+    .speed-unit { font-size: 18px; color: #6b6b85; }
+
     .badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 8px;
+      display: inline-block; padding: 4px 12px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; margin-top: 8px;
     }
-    .badge.override {
-      background: rgba(255,77,77,0.15);
-      color: #ff4d4d;
-      border: 1px solid rgba(255,77,77,0.3);
-    }
-    .badge.normal {
-      background: rgba(0,212,170,0.15);
-      color: #00d4aa;
-      border: 1px solid rgba(0,212,170,0.3);
-    }
+    .badge.override { background: rgba(255,77,77,0.15); color: #ff4d4d; border: 1px solid rgba(255,77,77,0.3); }
+    .badge.normal { background: rgba(0,212,170,0.15); color: #00d4aa; border: 1px solid rgba(0,212,170,0.3); }
 
     .info-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid #1e1e2e;
-      font-size: 14px;
+      display: flex; justify-content: space-between;
+      padding: 12px 0; border-bottom: 1px solid #1e1e2e; font-size: 14px;
     }
     .info-row:last-child { border-bottom: none; }
     .info-label { color: #6b6b85; }
     .info-value { color: #e8e8f0; font-weight: 600; }
 
     .objects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px;
     }
     .obj-box {
-      background: #0a0a0f;
-      border: 1px solid #1e1e2e;
-      border-radius: 8px;
-      padding: 10px;
-      text-align: center;
+      background: #0a0a0f; border: 1px solid #1e1e2e;
+      border-radius: 8px; padding: 10px; text-align: center;
     }
-    .obj-count {
-      font-size: 24px;
-      font-weight: 700;
-      color: #f0a500;
-    }
-    .obj-label {
-      font-size: 11px;
-      color: #6b6b85;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .obj-count { font-size: 24px; font-weight: 700; color: #f0a500; }
+    .obj-label { font-size: 11px; color: #6b6b85; text-transform: uppercase; letter-spacing: 1px; }
 
     .section-title {
-      font-size: 11px;
-      color: #6b6b85;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-      margin-top: 20px;
+      font-size: 11px; color: #6b6b85; text-transform: uppercase;
+      letter-spacing: 2px; margin-bottom: 12px; margin-top: 20px;
     }
 
     .error-box {
-      background: rgba(255,77,77,0.08);
-      border: 1px solid rgba(255,77,77,0.25);
-      border-radius: 8px;
-      padding: 14px;
-      color: #ff4d4d;
-      font-size: 14px;
-      display: none;
-      margin-top: 12px;
+      background: rgba(255,77,77,0.08); border: 1px solid rgba(255,77,77,0.25);
+      border-radius: 8px; padding: 14px; color: #ff4d4d;
+      font-size: 14px; display: none; margin-top: 12px;
     }
     .error-box.show { display: block; }
-
-    .loading {
-      text-align: center;
-      color: #6b6b85;
-      font-size: 14px;
-      display: none;
-      margin-top: 12px;
-    }
+    .loading { text-align: center; color: #6b6b85; font-size: 14px; display: none; margin-top: 12px; }
     .loading.show { display: block; }
   </style>
 </head>
@@ -198,32 +126,46 @@
   <h1>🚦 AI Smart Speed Regulator</h1>
   <p class="sub">Upload a road image → Get AI-powered speed recommendation</p>
 
-  <!-- INPUT CARD -->
   <div class="card">
     <label>Road Image</label>
     <input type="file" id="imageInput" accept="image/*" />
 
-    <label>Weather Condition</label>
-    <select id="weatherSelect">
-      <option value="clear">☀️ Clear</option>
-      <option value="rainy">🌧️ Rainy</option>
-      <option value="foggy">🌫️ Foggy</option>
-    </select>
+    <label>Weather Input Mode</label>
+    <div class="weather-toggle">
+      <button class="toggle-btn active" id="btnManual" onclick="setMode('manual')">✋ Manual</button>
+      <button class="toggle-btn" id="btnLive" onclick="setMode('live')">🌍 Live API</button>
+    </div>
 
-    <button id="analyzeBtn" onclick="analyze()">Analyze Road</button>
+    <!-- Manual weather -->
+    <div id="manualWeather">
+      <label>Weather Condition</label>
+      <select id="weatherSelect">
+        <option value="clear">☀️ Clear</option>
+        <option value="rainy">🌧️ Rainy</option>
+        <option value="foggy">🌫️ Foggy</option>
+      </select>
+    </div>
 
-    <div class="loading" id="loading">⏳ Detecting objects and calculating speed...</div>
+    <!-- Live weather -->
+    <div id="liveWeather" style="display:none;">
+      <label>City Name</label>
+      <input type="text" id="cityInput" placeholder="e.g. Bangalore, Mumbai, Delhi" />
+    </div>
+
+    <button class="analyze-btn" id="analyzeBtn" onclick="analyze()">Analyze Road</button>
+
+    <div class="loading" id="loading">⏳ Detecting objects and fetching weather...</div>
     <div class="error-box" id="errorBox"></div>
   </div>
 
-  <!-- RESULT CARD -->
   <div class="result-card" id="resultCard">
-
     <div class="speed-display">
       <div class="speed-number" id="speedNum">--</div>
       <div class="speed-unit">km/h recommended</div>
       <div id="overrideBadge"></div>
     </div>
+
+    <div id="weatherSourceBadge"></div>
 
     <div class="section-title">Detection Details</div>
     <div class="info-row">
@@ -239,118 +181,117 @@
       <span class="info-value" id="weatherVal">--</span>
     </div>
     <div class="info-row">
+      <span class="info-label">Temperature</span>
+      <span class="info-value" id="tempVal">--</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">City</span>
+      <span class="info-value" id="cityVal">--</span>
+    </div>
+    <div class="info-row">
       <span class="info-label">Reason</span>
       <span class="info-value" id="reason">--</span>
     </div>
 
     <div class="section-title">Objects Detected</div>
     <div class="objects-grid">
-      <div class="obj-box">
-        <div class="obj-count" id="countPedestrians">0</div>
-        <div class="obj-label">Pedestrians</div>
-      </div>
-      <div class="obj-box">
-        <div class="obj-count" id="countCars">0</div>
-        <div class="obj-label">Cars</div>
-      </div>
-      <div class="obj-box">
-        <div class="obj-count" id="countTrucks">0</div>
-        <div class="obj-label">Trucks</div>
-      </div>
-      <div class="obj-box">
-        <div class="obj-count" id="countBuses">0</div>
-        <div class="obj-label">Buses</div>
-      </div>
-      <div class="obj-box">
-        <div class="obj-count" id="countBikes">0</div>
-        <div class="obj-label">Bikes</div>
-      </div>
+      <div class="obj-box"><div class="obj-count" id="countPedestrians">0</div><div class="obj-label">Pedestrians</div></div>
+      <div class="obj-box"><div class="obj-count" id="countCars">0</div><div class="obj-label">Cars</div></div>
+      <div class="obj-box"><div class="obj-count" id="countTrucks">0</div><div class="obj-label">Trucks</div></div>
+      <div class="obj-box"><div class="obj-count" id="countBuses">0</div><div class="obj-label">Buses</div></div>
+      <div class="obj-box"><div class="obj-count" id="countBikes">0</div><div class="obj-label">Bikes</div></div>
     </div>
 
     <div class="section-title">Annotated Detection Image</div>
     <img id="annotatedImg" src="" alt="Detected objects"
       style="width:100%; border-radius:8px; border:1px solid #1e1e2e; margin-top:8px;" />
-
   </div>
 
 <script>
-    async function analyze() {
-      const fileInput = document.getElementById("imageInput");
-      const weather = document.getElementById("weatherSelect").value;
-      const btn = document.getElementById("analyzeBtn");
-      const loading = document.getElementById("loading");
-      const errorBox = document.getElementById("errorBox");
-      const resultCard = document.getElementById("resultCard");
+  let currentMode = "manual";
 
-      // Reset
-      errorBox.classList.remove("show");
-      resultCard.classList.remove("show");
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById("manualWeather").style.display = mode === "manual" ? "block" : "none";
+    document.getElementById("liveWeather").style.display = mode === "live" ? "block" : "none";
+    document.getElementById("btnManual").classList.toggle("active", mode === "manual");
+    document.getElementById("btnLive").classList.toggle("active", mode === "live");
+  }
 
-      if (!fileInput.files[0]) {
-        errorBox.textContent = "Please select an image first.";
-        errorBox.classList.add("show");
-        return;
-      }
+  async function analyze() {
+    const fileInput = document.getElementById("imageInput");
+    const btn = document.getElementById("analyzeBtn");
+    const loading = document.getElementById("loading");
+    const errorBox = document.getElementById("errorBox");
+    const resultCard = document.getElementById("resultCard");
 
-      // Loading state
-      btn.disabled = true;
-      loading.classList.add("show");
+    errorBox.classList.remove("show");
+    resultCard.classList.remove("show");
 
-      try {
-        const formData = new FormData();
-        formData.append("file", fileInput.files[0]);
-
-        const response = await fetch(`/api/detect?weather=${weather}`, {
-          method: "POST",
-          body: formData
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.detail || "Something went wrong");
-        }
-
-        // Fill results
-        document.getElementById("speedNum").textContent =
-          data.speed_recommendation.recommended_speed_kmph;
-        document.getElementById("roadType").textContent =
-          data.detection.road_type.toUpperCase();
-        document.getElementById("speedRange").textContent =
-          data.speed_recommendation.speed_range;
-        document.getElementById("weatherVal").textContent =
-          data.weather.condition.toUpperCase();
-        document.getElementById("reason").textContent =
-          data.speed_recommendation.reason;
-
-        // Objects
-        const obj = data.detection.objects_detected;
-        document.getElementById("countPedestrians").textContent = obj.pedestrians;
-        document.getElementById("countCars").textContent = obj.cars;
-        document.getElementById("countTrucks").textContent = obj.trucks;
-        document.getElementById("countBuses").textContent = obj.buses;
-        document.getElementById("countBikes").textContent = obj.bikes;
-
-        // Override badge
-        const badge = document.getElementById("overrideBadge");
-        if (data.detection.pedestrian_override) {
-          badge.innerHTML = '<span class="badge override">⚠️ Pedestrian Override Active</span>';
-        } else {
-          badge.innerHTML = '<span class="badge normal">✅ Normal Speed Limit</span>';
-        }
-        
-        document.getElementById("annotatedImg").src = "data:image/jpeg;base64," + data.annotated_image;
-        resultCard.classList.add("show");
-
-      } catch (err) {
-        errorBox.textContent = "Error: " + err.message;
-        errorBox.classList.add("show");
-      } finally {
-        btn.disabled = false;
-        loading.classList.remove("show");
-      }
+    if (!fileInput.files[0]) {
+      errorBox.textContent = "Please select an image first.";
+      errorBox.classList.add("show");
+      return;
     }
-  </script>
 
+    btn.disabled = true;
+    loading.classList.add("show");
+
+    try {
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      let url = "/api/detect";
+      if (currentMode === "live") {
+        const city = document.getElementById("cityInput").value.trim();
+        if (!city) { throw new Error("Please enter a city name for live weather."); }
+        url += `?city=${encodeURIComponent(city)}`;
+      } else {
+        const weather = document.getElementById("weatherSelect").value;
+        url += `?weather=${weather}`;
+      }
+
+      const response = await fetch(url, { method: "POST", body: formData });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.detail || "Something went wrong");
+
+      // Fill results
+      document.getElementById("speedNum").textContent = data.speed_recommendation.recommended_speed_kmph;
+      document.getElementById("roadType").textContent = data.detection.road_type.toUpperCase();
+      document.getElementById("speedRange").textContent = data.speed_recommendation.speed_range;
+      document.getElementById("weatherVal").textContent = data.weather.condition.toUpperCase() + " — " + data.weather.description;
+      document.getElementById("tempVal").textContent = data.weather.temperature_c !== null ? data.weather.temperature_c + " °C" : "N/A";
+      document.getElementById("cityVal").textContent = data.weather.city || "Manual input";
+      document.getElementById("reason").textContent = data.speed_recommendation.reason;
+
+      const obj = data.detection.objects_detected;
+      document.getElementById("countPedestrians").textContent = obj.pedestrians;
+      document.getElementById("countCars").textContent = obj.cars;
+      document.getElementById("countTrucks").textContent = obj.trucks;
+      document.getElementById("countBuses").textContent = obj.buses;
+      document.getElementById("countBikes").textContent = obj.bikes;
+
+      const badge = document.getElementById("overrideBadge");
+      badge.innerHTML = data.detection.pedestrian_override
+        ? '<span class="badge override">⚠️ Pedestrian Override Active</span>'
+        : '<span class="badge normal">✅ Normal Speed Limit</span>';
+
+      const srcBadge = document.getElementById("weatherSourceBadge");
+      srcBadge.innerHTML = data.weather.source === "live"
+        ? '<span class="weather-source-badge live-badge">🌍 LIVE WEATHER — OpenWeatherMap</span>'
+        : '<span class="weather-source-badge manual-badge">✋ MANUAL WEATHER INPUT</span>';
+
+      document.getElementById("annotatedImg").src = "data:image/jpeg;base64," + data.annotated_image;
+      resultCard.classList.add("show");
+
+    } catch (err) {
+      errorBox.textContent = "Error: " + err.message;
+      errorBox.classList.add("show");
+    } finally {
+      btn.disabled = false;
+      loading.classList.remove("show");
+    }
+  }
+</script>
 </body>
 </html>
